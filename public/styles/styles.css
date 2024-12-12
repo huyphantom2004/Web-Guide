@@ -1,0 +1,183 @@
+/* Import font */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+/* Reset margins, padding, and box sizing */
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Links */
+a {
+    text-decoration: none;
+}
+
+/* List items */
+li {
+    list-style: none;
+}
+
+/* Header styles */
+header {
+    background-color: #808080;
+    color: white;
+    padding: 15px 0;
+    text-align: center;
+    grid-column: 1 / -1; /* Make header span the entire width of the grid */
+}
+
+/* Body styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Sidebar + Main content */
+    grid-template-rows: auto 1fr auto; /* Header, Main content, and Footer */
+    grid-template-areas:
+        "header header"
+        "sidebar main"
+        "footer footer";
+    min-height: 100vh;
+    overflow-x: hidden; /* Prevent horizontal overflow */
+}
+
+/* Sidebar */
+#sidebar {
+    position: relative;
+    top: 0;
+    left: 0;
+    background-color: #fafbfe;
+    height: 100%;
+    width: 250px; /* Sidebar width */
+    display: flex;
+    flex-direction: column;
+    transition: all 0.25s ease-in-out;
+    z-index: 1;
+}
+
+#sidebar.expand {
+    width: 260px; /* Expanded width */
+}
+
+/* Main content area */
+.main {
+    grid-area: main;
+    background-color: white;
+    border: 1px solid lightgray;  /* Border for main content */
+    transition: all 0.35s ease-in-out;
+    margin-left: 250px; /* Space for sidebar */
+    margin-right: 300px; /* Space on the right side (300px) */
+    overflow-y: auto; /* Allow vertical scrolling when content overflows */
+    flex: 1 1 auto; /* Ensure main content fills available space */
+    box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+}
+
+/* Content container inside main */
+.content-container {
+    border: 1px solid lightgray; /* Border around the content */
+    padding: 20px; /* Padding inside content container */
+    margin-right: 250px;
+    background-color: #ffffff; /* Background color of the container */
+    box-sizing: border-box; /* Ensures border and padding are included in the element's width/height */
+    min-height: 100%;
+}
+
+/* Footer */
+footer {
+    grid-area: footer; /* Ensure footer stays at the bottom of the grid */
+    background: transparent;
+    color: white;
+    width: 100%;
+    text-align: center;
+    justify-content: center;
+    z-index: 0;
+}
+
+/* Toggle button for sidebar */
+.toggle-btn {
+    background-color: transparent;
+    cursor: pointer;
+    border: 0;
+    padding: 1rem 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.toggle-btn i {
+    font-size: 1.5rem;
+    color: #FFF;
+}
+
+/* Sidebar logo */
+.sidebar-logo {
+    margin: auto 0;
+    text-align: center;
+}
+
+.sidebar-logo a {
+    color: #FFF;
+    font-size: 1.15rem;
+    font-weight: 600;
+}
+
+/* Sidebar navigation */
+.sidebar-nav {
+    padding: 2rem 0;
+    flex: 1;
+    padding-bottom: 50px; 
+}
+
+a.sidebar-link {
+    padding: .625rem 1.625rem; 
+    color: #FFF;
+    display: block;
+    font-size: 0.875rem;  
+    white-space: nowrap;
+    border-left: 3px solid transparent;
+}
+
+a.sidebar-link:hover {
+    background-color: rgba(255, 255, 255, .075);
+    border-left: 3px solid #3b7ddd;
+}
+
+.w3-bar-item.w3-button {
+    font-size: 16px;
+}
+
+a.sidebar-link:last-child {
+    position: absolute;
+    bottom: 0;  /* Đặt phần tử này ở dưới cùng của sidebar */
+    width: 100%;  /* Đảm bảo chiều rộng của phần tử này chiếm toàn bộ sidebar */
+    padding: 1rem;  /* Cung cấp khoảng cách bên trong cho nút */
+}
+
+/* Responsive Design: Sidebar collapses on smaller screens */
+@media (max-width: 768px) {
+    body {
+        grid-template-columns: 1fr; /* Main content only */
+    }
+
+    #sidebar {
+        width: 60px;
+        min-width: 60px;
+    }
+
+    #sidebar.expand {
+        width: 220px;
+    }
+
+    .main {
+        margin-left: 60px; /* Adjust for collapsed sidebar */
+    }
+
+    .toggle-btn i {
+        font-size: 1.25rem;
+    }
+}

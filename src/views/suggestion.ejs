@@ -1,0 +1,51 @@
+<div class="search-results">
+    <h2>Search Results for "<%= query %>"</h2>
+  
+    <% if (filteredResults.length > 0) { %>
+      <div class="suggestions-container">
+        <% filteredResults.forEach(function(result) { %>
+          <div class="suggestionItem" style="width: 18rem;">
+            <div class="suggestionItem-body">
+              <!-- Title 1 -->
+              <a href="<%= result.url %>" class="suggestionItem-title"style="font-size: 22px; color: #0A5EB0;"><%= result.keyword %></a>
+              <!-- Title 2 -->
+              <a href="<%= result.url %>" class="suggestionItem-title"style="font-size: 16px;">Visit Page</a>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <p>No results found for your search.</p>
+    <% } %>
+  </div>
+
+<style>
+.suggestionItem-body {
+  margin-left: 32px;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;  /* Sắp xếp các phần tử con theo chiều dọc */
+  align-items: flex-start; /* Căn chỉnh nội dung bên trái */
+}
+
+.suggestionItem-title {
+  display: block;          /* Đảm bảo các liên kết chiếm toàn bộ dòng */
+  margin-bottom: 10px;     /* Khoảng cách giữa các tiêu đề */
+  text-decoration: none;   /* Bỏ gạch chân cho liên kết */
+  color: black;          /* Màu sắc của liên kết */
+}
+
+.suggestionItem-title:hover {
+  text-decoration: underline;  /* Gạch chân khi hover */
+}
+
+.suggestionItem-title a {
+  text-decoration: none;
+  color: black; /* Màu sắc của liên kết */
+}
+
+.suggestionItem-title a:hover {
+  text-decoration: underline;
+}
+
+</style>

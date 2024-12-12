@@ -1,0 +1,73 @@
+<div class="w3-bar w3-gray w3-hide-small">
+  <a href="#" id="searchButton" class="w3-bar-item w3-button w3-right"><i class="fa fa-search"></i></a>
+  <input 
+    id="searchInput" 
+    type="text" 
+    placeholder="Tìm kiếm..." 
+    class="w3-bar-item w3-input w3-right w3-border" 
+    style="width:200px;" 
+    onkeyup="showSuggestions(event)"
+  >
+  <div id="suggestions" class="w3-dropdown-content w3-card-4 w3-light-grey w3-hide"></div>
+</div>
+
+<script>
+  // Hàm hiển thị gợi ý tìm kiếm từ server
+  function showSuggestions(event) {
+    const input = document.getElementById('searchInput');
+    const suggestionsBox = document.getElementById('suggestions');
+    const query = input.value;
+
+    // Nếu không có gì được nhập, ẩn gợi ý
+    if (!query) {
+      suggestionsBox.classList.add('w3-hide');
+      return;
+    }
+
+    // Gửi request đến server để lấy gợi ý
+    fetch(`/search?query=${query}`)
+      .then(response => response.json())
+      .then(data => {
+        suggestionsBox.innerHTML = '';  // Xóa các gợi ý cũ
+        
+        if (data.length > 0) {
+          data.forEach(item => {
+            const suggestionItem = document.createElement('div');
+            suggestionItem.classList.add('suggestionItem');
+            suggestionItem.innerHTML = `${item.keyword}`;
+            
+            // Thêm sự kiện click cho mỗi gợi ý
+            suggestionItem.addEventListener('click', function() {
+              // Dẫn đến trang kết quả tìm kiếm với từ khóa tương ứng
+              window.location.href = `/search?query=${item.keyword}`;  // Chuyển hướng tới /search?query=<từ khóa>
+            });
+
+            suggestionsBox.appendChild(suggestionItem);
+          });
+          suggestionsBox.classList.remove('w3-hide');
+        } else {
+          suggestionsBox.classList.add('w3-hide');
+        }
+      });
+  }
+
+  // Sự kiện khi người dùng nhấn Enter
+  document.getElementById('searchInput').addEventListener('keypress', function(event) {
+    if (event.key === 'Enter') {
+      event.preventDefault();  // Ngừng hành động mặc định của Enter (submit form)
+      const query = this.value;
+      if (query) {
+        // Điều hướng đến /search?query=<từ khóa>
+        window.location.href = `/search?query=${query}`;
+      }
+    }
+  });
+
+  // Cập nhật href của searchButton khi có sự thay đổi trong ô tìm kiếm
+  document.getElementById('searchButton').addEventListener('click', function() {
+    const query = document.getElementById('searchInput').value;
+    if (query) {
+      window.location.href = `/search?query=${query}`;
+    }
+  });
+</script>

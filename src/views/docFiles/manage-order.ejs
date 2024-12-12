@@ -1,0 +1,150 @@
+<!-- Nội dung bài học -->
+<section class="content">
+    <h1>Đăng nhập</h1>
+    <h4>Trang web có hỗ trợ với 3 hình thức đăng nhập</h4>
+    <h4>Ở giao diện ban đầu chọn đăng nhập để bắt đầu đăng nhập vào hệ thống của cửa hàng</h4>
+    <img class="login-image" src="/images/sign-in/sign-in0.png" alt="Ảnh giao diện ban đầu">
+  
+    <div class="login-guide">
+      <!-- Đăng nhập gmail và mật khẩu -->
+      <h3>1. Đăng nhập gmail và mật khẩu</h3>
+      <h5>Điền tên đăng nhập và mật khẩu vào</h5>
+      <img class="login-image" src="/images/sign-in/sign-in1.png" alt="Ảnh đăng nhập bằng tk-mk">
+      <h5>Nhấn vào login để đăng nhập vào hệ thống</h5>
+      
+      <!-- Đăng nhập với Google -->
+      <h3>2. Đăng nhập với Google</h3>
+      <h5>Bước 1: Chọn đăng nhập bằng Google</h5>
+      <img class="login-image" src="/images/sign-in/sign-in2.png" alt="Ảnh đăng nhập bằng google 1">
+      <h5>Bước 2: Chọn tài khoản Google dùng để đăng nhập vào hệ thống</h5>
+      <img class="login-image" src="/images/sign-in/sign-in3.png" alt="Ảnh đăng nhập bằng google 2">
+      <h5>Bước 3: Nhấn tiếp tục để tiến hành đăng nhập</h5>
+      <img class="login-image" src="/images/sign-in/sign-in4.png" alt="Ảnh đăng nhập bằng google 3">
+      
+      <!-- Đăng nhập với Facebook -->
+      <h3>3. Đăng nhập với Facebook</h3>
+      <h5>Chọn đăng nhập bằng Facebook</h5>
+      <img class="login-image" src="/images/sign-in/sign-in5.png" alt="Ảnh đăng nhập bằng fb">
+      
+      <h4>Sau khi hoàn thành đăng nhập bằng 1 trong 3 cách trên, bạn có thể bắt đầu sử dụng hệ thống cho cửa hàng của mình</h4>
+    </div>
+  
+    <div class="Login-note">
+      <h4>Lưu ý:</h4>
+      <h5>Nếu chưa có tài khoản:</h5>
+      <h6>- Có thể đăng nhập bằng Google, Facebook</h6>
+      <h6>- Nếu muốn đăng nhập bằng email mật khẩu vui lòng nhấn đăng ký</h6>
+      <img class="login-image" src="/images/sign-in/sign-in6.png" alt="Ảnh chưa có tk-mk">
+  
+      <h5>Nếu có tài khoản nhưng quên mật khẩu:</h5>
+      <h6>- Ấn vào forgot password</h6>
+      <img class="login-image" src="/images/sign-in/sign-in7.png" alt="Ảnh forgot mk">
+      <h6>- Điền email cần lấy lại mật khẩu</h6>
+      <img class="login-image" src="/images/sign-in/sign-in8.png" alt="Ảnh forgot mk 2">
+      <h6>- Một mã OTP sẽ gửi vào mail bạn hãy điền nó vào ô trống, sau đó đền mật khẩu mới</h6>
+    </div>
+  </section>
+  
+  <style>
+    /* Basic styling for the content */
+    .content {
+      font-family: 'Poppins', sans-serif;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+  
+    /* Title styles */
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+  
+    h4, h5, h6 {
+      color: #333;
+    }
+  
+    /* Center align the images */
+    .login-image {
+      display: block;
+      margin: 20px auto;
+      max-width: 80%;
+      max-height: 400px;
+      object-fit: cover; /* Keeps aspect ratio */
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+  
+    /* Image hover effect */
+    .login-image:hover {
+      transform: scale(1.05);
+    }
+  
+    /* Login guide section */
+    .login-guide {
+      margin-bottom: 30px;
+    }
+  
+    .login-guide h3 {
+      font-size: 1.8rem;
+      color: #00796b;
+      margin-top: 20px;
+      text-decoration: underline;
+    }
+  
+    .login-guide h5 {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+  
+    /* Note section */
+    .Login-note {
+      background-color: #f1f8e9;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      margin-top: 20px;
+    }
+  
+    .Login-note h4 {
+      font-size: 1.4rem;
+      color: #333;
+    }
+  
+    .Login-note h5 {
+      color: #333;
+      margin-top: 10px;
+    }
+  
+    .Login-note h6 {
+      font-size: 1rem;
+      color: #555;
+      margin-left: 20px;
+      line-height: 1.6;
+    }
+  
+    /* Responsive design */
+    @media (max-width: 768px) {
+      .content {
+        padding: 15px;
+      }
+  
+      .login-image {
+        max-width: 90%;
+      }
+  
+      h1 {
+        font-size: 2rem;
+      }
+  
+      h3 {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  

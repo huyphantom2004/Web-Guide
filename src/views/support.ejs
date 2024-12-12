@@ -1,0 +1,76 @@
+<section class="content">
+    <div class="form-floating row">
+        <div class="col-md-4">
+            <img src="/images/suppMEME.png" alt="Ảnh của bạn" class="support-image">
+        </div>
+        <div class="col-md-8">
+            <label for="exampleFormControlTextarea1" class="form-label">Câu hỏi</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6"></textarea>
+            <button type="button" style="margin-top: 5px;border: 1px solid gray; border-radius: 10px;" class="btn">Gửi</button>
+        </div>
+    </div>
+</section>
+
+<script>
+  // Lắng nghe sự kiện khi người dùng nhấn nút gửi
+  document.getElementById('sendButton').addEventListener('click', function () {
+    var message = document.getElementById('exampleFormControlTextarea1').value;
+
+    // Gửi yêu cầu POST đến API trên server
+    fetch('http://localhost:3000/send-email', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ message: message }),  // Gửi nội dung câu hỏi
+    })
+    .then(response => response.text())  // Lấy phản hồi từ server
+    .then(data => {
+      // Hiển thị thông báo alert cho người dùng
+      alert(data);  // Nếu gửi thành công, sẽ nhận phản hồi từ server
+    })
+    .catch((error) => {
+      alert('Có lỗi xảy ra khi gửi email!');
+      console.error('Error:', error);  // Log lỗi nếu có
+    });
+  });
+</script>
+
+<style>
+  .form-floating.row {
+      display: flex;
+      flex-wrap: wrap; /* Cho phép các phần tử xuống dòng khi không đủ không gian */
+      margin-left: 50px;
+      margin-right: 50px;
+  }
+
+  /* Điều chỉnh chiều rộng của các cột */
+  .column {
+      padding: 10px;
+      box-sizing: border-box; /* Đảm bảo padding không ảnh hưởng đến tổng chiều rộng */
+  }
+
+  .col-md-4 {
+      flex: 0 0 30%;  /* 40% chiều rộng cho cột ảnh */
+      max-width: 30%;
+  }
+
+  .col-md-8 {
+      margin-top: 20px;
+      flex: 0 0 70%;  /* 60% chiều rộng cho cột nhập liệu */
+      max-width: 70%;
+  }
+
+  .support-image {
+      width: 100%; 
+      height: auto;
+  }
+
+  /* Đảm bảo các phần tử khi màn hình nhỏ vẫn hiển thị đẹp */
+  @media (max-width: 768px) {
+      .col-md-4, .col-md-8 {
+          flex: 0 0 100%; /* Chiếm toàn bộ chiều rộng khi màn hình nhỏ */
+          max-width: 100%;
+      }
+  }
+</style>
