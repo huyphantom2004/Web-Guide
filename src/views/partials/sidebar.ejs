@@ -1,23 +1,101 @@
 <!-- Main content with Sidebar -->
-<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="mySidebar">
-    <div class="w3-container w3-display-container w3-padding-16">
-      <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
-      <a href="http://localhost:5000" class="w3-wide" style="font-size: 25px;font-weight: 1000;font-family: Fredoka ;color: teal;"><b>SMART STORE</b></a>
-    </div>
-    
-    <div class="w3-padding-32 w3-large w3-text-black" style="font-weight:normal">
-      <div class="w3-container w3-padding-12">
-      <h4 class="w3-wide" style="font-family: roboto;"><b>Web Tutorial</b></h4>
-      </div>
-      <a href="/" class="w3-bar-item w3-button">Giới thiệu</a>
-      <a href="/sign-in" class="w3-bar-item w3-button">Đăng nhập</a>
-      <a href="/sign-up" class="w3-bar-item w3-button">Đăng ký</a>
-      <a href="/manage-product" class="w3-bar-item w3-button">Quản lý sản phẩm</a>
-      <a href="/manage-warehouse" class="w3-bar-item w3-button">Quản lý kho</a>
-      <a href="/manage-order" class="w3-bar-item w3-button">Quản lý đơn hàng</a>
-      <a href="/roles" class="w3-bar-item w3-button">Quản lý quyền nhân viên</a>
-      <a href="/manage-account" class="w3-bar-item w3-button">Quản lý tài khoản</a>
-    </div>
-    <a href="/support" class="w3-bar-item w3-button w3-padding">Support</a> 
-  </nav>
+<nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:280px" id="mySidebar">
+  <div class="w3-container w3-display-container w3-padding-16">
+    <i onclick="w3_close()" class="fa fa-remove w3-hide-large w3-button w3-display-topright"></i>
+    <a href="http://localhost:3000" class="w3-wide" style="font-size: 25px;font-weight: 1000;font-family: Fredoka ;color: teal;"><b>SMART STORE</b></a>
+  </div>
   
+  <div class="w3-padding-32 w3-large w3-text-black" style="font-weight:normal" data-bs-spy="scroll" data-bs-target="#mySidebar" data-bs-offset="0">
+    <div class="w3-container w3-padding-12">
+    <h4 class="w3-wide" style="font-family: roboto;"><b>Web Tutorial</b></h4>
+    </div>
+    <a href="/" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Giới thiệu</a>
+    <a href="/sign-in" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Đăng nhập</a>
+    <a href="/sign-up" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Đăng ký</a>
+
+    <li class="sidebar_add">
+      <div class="sidebar_link" id="productLink" onclick="toggleProductDropdown()">
+        <span id="productText" style="font-size: 16px; padding-left: 8px;">Quản lý sản phẩm</span>
+        <span id="arrow" class="submenu-arrow"></span> <!-- Arrow added here -->
+      </div>
+      <ul class="sidebar_submenu" style="font-size: 16px;" id="productSubmenu">
+        <li><a href="/manage-product" class="sidebar_link sub-button">Quản lý sản phẩm</a></li>
+        <li><a href="/supplier" class="sidebar_link sub-button">Quản lý nhà cung cấp</a></li>
+      </ul>
+    </li>
+
+    <a href="/manage-warehouse" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Quản lý kho</a>
+    <a href="/manage-order" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Quản lý đơn hàng</a>
+
+    <li class="sidebar_add">
+      <div class="sidebar_link" id="rolesLink" onclick="toggleRolesDropdown()">
+        <span id="rolesText" style="font-size: 16px; padding-left: 8px;">Quản lý quyền nhân viên</span>
+        <span id="arrow" class="submenu-arrow"></span> <!-- Arrow added here -->
+      </div>
+      <ul class="sidebar_submenu" style="font-size: 16px;" id="rolesSubmenu">
+        <li><a href="/roles" class="sidebar_link sub-button">Quản lý quyền nhân viên</a></li>
+        <li><a href="/roles/manage-account" class="sidebar_link sub-button">Quản lý tài khoản</a></li>
+        <li><a href="/roles/role-permissions" class="sidebar_link sub-button">Phân quyền</a></li>
+        <li><a href="/roles/roles-group" class="sidebar_link sub-button">Nhóm quyền</a></li>
+      </ul>
+    </li>
+    <a href="/work-schedule" class="w3-bar-item w3-button" data-bs-target="#mySidebar">Quản lý lịch làm việc</a>
+  </div>
+  <a href="/support" class="w3-bar-item w3-button w3-padding sidebar-support" data-bs-target="#mySidebar">Support</a> 
+</nav>
+
+<script>
+  // Toggle function for the Roles submenu
+  let isRolesOpen = false;
+  function toggleRolesDropdown() {
+    isRolesOpen = !isRolesOpen;
+    const rolesSubmenu = document.getElementById('rolesSubmenu');
+    const rolesText = document.getElementById('rolesText');
+
+    if (isRolesOpen) {
+      rolesSubmenu.style.display = 'block';
+    } else {
+      rolesSubmenu.style.display = 'none';
+    }
+  }
+
+  // Prevent submenu closing when clicking on items within the submenu
+  document.querySelectorAll('#rolesSubmenu a').forEach(item => {
+    item.addEventListener('click', function (event) {
+      event.stopPropagation();
+      setActiveMenuItem(item); // Mark item as active
+    });
+  });
+
+  // Toggle function for the Product submenu
+  let isProductOpen = false;
+  function toggleProductDropdown() {
+    isProductOpen = !isProductOpen;
+    const productSubmenu = document.getElementById('productSubmenu');
+    const productText = document.getElementById('productText');
+
+    if (isProductOpen) {
+      productSubmenu.style.display = 'block';
+    } else {
+      productSubmenu.style.display = 'none';
+    }
+  }
+
+  // Prevent submenu closing when clicking on items within the submenu
+  document.querySelectorAll('#productSubmenu a').forEach(item => {
+    item.addEventListener('click', function (event) {
+      event.stopPropagation();
+      setActiveMenuItem(item); // Mark item as active
+    });
+  });
+
+  // Function to set the active state of menu items
+  function setActiveMenuItem(selectedItem) {
+    const allMenuItems = document.querySelectorAll('.sidebar_link');
+    allMenuItems.forEach(item => {
+      item.classList.remove('active');
+    });
+
+    selectedItem.classList.add('active');
+  }
+</script>

@@ -2,7 +2,7 @@ const express = require('express');
 const path = require('path');
 const morgan = require('morgan');
 const app = express();
-const port = 3000;
+const port = 8000;
 
 // Import route
 const indexRoute = require('./src/routes/index');

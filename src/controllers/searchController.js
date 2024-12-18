@@ -1,10 +1,20 @@
 // Danh sách từ khóa gợi ý với URL tương ứng
 const suggestionsList = [
-  { keyword: 'HTML', url: '/html' },
-  { keyword: 'CSS', url: '/css' },
-  { keyword: 'JS', url: '/js' },
-  { keyword: 'React', url: '/search/react' },
-  { keyword: 'Vue.js', url: '/search/vuejs' }
+  { keyword: 'Giới thiệu', url: '/' },
+  { keyword: 'Đăng nhập', url: '/sign-in' },
+  { keyword: 'Đăng nhập bằng google', url: '/sign-in' },
+  { keyword: 'Đăng nhập bằng gmail', url: '/sign-in' },
+  { keyword: 'Đăng nhập bằng facebook', url: '/sign-in' },
+  { keyword: 'Tạo tài khoản', url: '/sign-in' },
+  { keyword: 'Quên tài khoản', url: '/sign-in' },
+  { keyword: 'Đăng ký', url: '/sign-up' },
+  { keyword: 'Quản lý sản phẩm', url: '/manage-product' },
+  { keyword: 'Thêm sản phẩm', url: '/manage-product' },
+  { keyword: 'Xóa sản phẩm', url: '/manage-product' },
+  { keyword: 'Xem thông tin sản phẩm', url: '/manage-product' },
+  { keyword: 'Chỉnh sửa sản phẩm', url: '/manage-product' },
+  { keyword: 'Quản lý nhà cung cấp', url: '/supplier' },
+  { keyword: 'Quản lý kho', url: '/manage-warehouse' }
 ];
 
 // Trả về gợi ý tìm kiếm dưới dạng JSON

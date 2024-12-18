@@ -1,0 +1,125 @@
+<section class="content">
+  <h1>Quản lý quyền nhân viên</h1>
+  <h4>Trang web hỗ trợ các tiện ích giúp bạn trao quyền và quản lý các quyền của nhân viên.</h4>
+  <h4 style="border-top: 1px solid lightgray; margin-top: 15px; padding-top: 15px;">Ở giao diện ban đầu chọn Quản lý quyền nhân viên để mở menu các thao tác liên quan đến quyền nhân viên.</h4>
+  <img class="roles-image" src="/images/roles/roles0.png" alt="Ảnh giao diện ban đầu">
+
+  <div class="roles-guide">
+    <h4 style="border-top: 1px solid lightgray; margin-top: 15px; padding-top: 15px;">Web hỗ trợ 3 mục chính để bạn quản lý các quyền của nhân viên:</h4>
+    <div class="card-container">
+      <div class="card-body">
+        <a href="/roles/manage-account" class="card-link">
+          <h5 class="card-title" style="font-size: 24px;">Quản lý tài khoản</h5>
+        </a>
+        <p class="card-text">Cung cấp các thao tác đối với tài khoản được cấp cho nhân viên.</p>
+      </div>
+      <div class="card-body">
+        <a href="/roles/role-permissions" class="card-link">
+          <h5 class="card-title" style="font-size: 24px;">Phân quyền</h5>
+        </a>
+        <p class="card-text">Cung cấp các thao tác giúp phân quyền cho nhân viên.</p>
+      </div>
+      <div class="card-body">
+        <a href="/roles/roles-group" class="card-link">
+          <h5 class="card-title" style="font-size: 24px;">Nhóm quyền</h5>
+        </a>
+        <p class="card-text">Liệt kê và tạo các nhóm quyền.</p>
+      </div>
+    </div>
+  </div>
+    
+</section>
+
+<style>
+
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  h4, h5, h6 {
+    color: #333;
+  }
+  
+  /* Center align the images */
+  .roles-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    max-height: 400px;
+    object-fit: cover; /* Keeps aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  /* Image hover effect */
+  .roles-image:hover {
+    transform: scale(1.05);
+  }
+
+  /* roles guide section */
+  .roles-guide {
+    margin-bottom: 30px;
+  }
+
+  .roles-guide h5 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+
+  /* Container for the cards */
+  .card-container {
+    display: flex;
+    justify-content: space-between; 
+    gap: 40px; 
+    margin: 10px 50px 0 50px;
+  }
+
+  .card-body {
+    background-color: #fafafa;
+    border: 1px solid #ddd;
+    padding: 20px;
+    height: 250px;
+    width: 100px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space between content and button */
+    transition: all 0.3s ease;
+    margin-bottom: 20px;
+  }
+
+  /* Card Titles */
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer; /* Shows the pointer cursor when hovering over title */
+    text-decoration: none; /* Removes default link decoration */
+    margin-bottom: 15px; /* Space between title and text */
+  }
+
+  .card-title:hover {
+    color: #0056b3; /* Change color on hover */
+  }
+
+  /* Card text */
+  .card-text {
+    font-size: 1rem;
+    color: #777;
+    flex-grow: 1; /* Ensures the text doesn't push the title up */
+  }
+
+  /* Card link styles */
+  .card-link {
+    text-decoration: none; /* Ensure link doesn't have underlines */
+  }
+
+  .card-body:hover {
+    background-color: #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  </style>

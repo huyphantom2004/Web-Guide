@@ -12,10 +12,17 @@ const searchController = require('../controllers/searchController');
 router.get('/sign-in', docsController.signIn);
 router.get('/sign-up', docsController.signUp);
 router.get('/manage-product', docsController.manageProduct);
+router.get('/supplier', docsController.supplier);
+
 router.get('/manage-warehouse', docsController.manageWarehouse);
 router.get('/manage-order', docsController.manageOrder);
+
+router.get('/roles/roles-group', docsController.rolesGroup);
+router.get('/roles/role-permissions', docsController.rolePermissions);
+router.get('/roles/manage-account', docsController.manageAccount);
 router.get('/roles', docsController.roles);
-router.get('/manage-account', docsController.manageAccount);
+
+router.get('/work-schedule', docsController.workSchedule);
 
 // Controller hoặc Route xử lý tìm kiếm
 router.get('/search', searchController.renderSearchPage);

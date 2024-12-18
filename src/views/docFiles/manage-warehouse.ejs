@@ -1,24 +1,72 @@
-<!-- Nội dung bài học -->
 <section class="content">
-  <h1>Đăng nhập</h1>
-  <h4>Có 3 cách thức đăng nhập</h4>
-  <!-- Phần hướng dẫn chung -->
-  <div class="login-guide">
-    <!-- Đăng nhập với Google -->
-    <h3> Đăng nhập với Google </h3>
-      <h5>Bước 1: </h5>
-      <h5>Bước 2: </h5>
-      <h5>Bước 3: </h5>
-    <!-- Đăng nhập với Facebook -->
-    <h3> Đăng nhập với Facebook </h3>
-      <h5>Bước 1: </h5>
-      <h5>Bước 2: </h5>
-      <h5>Bước 3: </h5>
-    <!-- Đăng nhập với SĐT -->
-    <h3> Đăng nhập với SĐT </h3>
-      <h5>Bước 1: </h5>
-      <h5>Bước 2: </h5>
-      <h5>Bước 3: </h5>
-    <!-- Chú thích thêm về các phương thức -->
-  </div>
+  <h1>Quản lý kho hàng</h1>
+  <h4>Hiển thị các đơn hàng đang được xử lý đặt hàng với nhà cung cấp.</h4>
+  <img class="import-image" src="/images/warehouse/import1.png" alt="Ảnh giao diện ban đầu">
+
+  <div class="import-guide">
+    <h3 style="border-top: 1px solid lightgray; margin-top: 15px; padding-top: 15px;">Để tạo 1 đơn hàng mới: </h3>
+    <h5>Bước 1: Chọn vào Create Order</h5>
+    <img class="import-image" src="/images/warehouse/import2.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Bước 2: Nhập tên mặt hàng muốn đặt và nhấn add to order để thêm vào danh sách hàng hóa</h5>
+    <img class="import-image" src="/images/warehouse/import3.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Bước 3: Sau khi hoàn thành danh sách các mặt hàng cần thiết, nhấn complete để tạo đơn hàng</h5>
+    <img class="import-image" src="/images/warehouse/import4.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Thông báo thêm đơn thành công và đơn hàng sẽ trong tình trạng đang xử lý.</h5>
+    <img class="import-image" src="/images/warehouse/import5.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Mail sẽ được gửi tới nhà cung cấp để xử lý đơn hàng.</h5>
+
+    <h4 style="border-top: 1px solid lightgray; margin-top: 15px; padding-top: 15px;">Nếu như đơn hàng đã xử lý xong, bạn có thể nhấn vào biểu tượng ở mục Action</h4>
+    <img class="import-image" src="/images/warehouse/import6.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Chỉnh lại trong mục Status vè trạng thái của đơn hàng</h5>
+    <img class="import-image" src="/images/warehouse/import7.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h5>Khi đơn hàng trong trạng thái hoàn tất hoặc bị hủy, đơn hàng sẽ được loại bỏ khỏi danh sách và có thông báo trả về</h5>
+    <img class="import-image" src="/images/warehouse/import8.png" alt="Ảnh Đăng ký bằng tk-mk">
+    <h4 style="border-top: 1px solid lightgray; margin-top: 15px; padding-top: 15px;">Mỗi lần đơn hàng được thêm hoặc thay đổi trạng thái, dữ liệu sẽ được lưu vào trong lịch sử</h4>
+    <img class="import-image" src="/images/warehouse/import9.png" alt="Ảnh Đăng ký bằng tk-mk">
 </section>
+
+<style>
+  /* Title styles */
+  h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+  }
+
+  h4, h5, h6 {
+    color: #333;
+  }
+
+  /* Center align the images */
+  .import-image {
+    display: block;
+    margin: 20px auto;
+    max-width: 80%;
+    max-height: 400px;
+    object-fit: cover; /* Keeps aspect ratio */
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+  }
+
+  /* Image hover effect */
+  .import-image:hover {
+    transform: scale(1.05);
+  }
+
+  /* import guide section */
+  .import-guide {
+    margin-bottom: 30px;
+  }
+
+  .import-guide h3 {
+    font-size: 1.8rem;
+    color: #00796b;
+    margin-top: 20px;
+  }
+
+  .import-guide h5 {
+    font-size: 1.1rem;
+    margin-top: 10px;
+  }
+  </style>
